@@ -1,0 +1,31 @@
+<script>
+  getPageInformations();
+  updateDataInRDStationApp();
+</script>
+
+<h1>Contact</h1>
+
+<!--<form action="/action_page.php">
+  E-mail:<br>
+  <input type="text" name="E-mail" value="linus@linux.com">
+  <br>
+  <button type="button">Click Me!</button>
+</form>-->
+
+<%= form_for :contact do |f| %>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, :value => "linus@linux.com", :required => true %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<script>
+$('form').submit(function() {
+    sendDataToRDStationApp($(this).serialize());
+    return false;
+});
+</script>
